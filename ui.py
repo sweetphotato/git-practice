@@ -1,10 +1,9 @@
 #ch 5.2.1
 
-from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QVBoxLayout, 
+from PyQt5.QtWidgets import (QApplication,QWidget,QPushButton,QVBoxLayout,
                              QMessageBox, QPlainTextEdit, QHBoxLayout,
-                             QLineEdit, QComboBox ) 
-
-from PyQt5.QtGui import QIcon 
+                             QLineEdit, QComboBox)
+from PyQt5.QtGui import QIcon
 from PyQt5 import QtCore
 
 class View(QWidget):
@@ -17,8 +16,13 @@ class View(QWidget):
         self.te1=QPlainTextEdit()
         self.te1.setReadOnly(True)
         
+        self.btn1=QPushButton('Calc',self)
+        self.btn2=QPushButton('Clear',self)
+        
         self.le1=QLineEdit('0', self)
         self.le1.setAlignment(QtCore.Qt.AlignRight)
+        self.le1.setFocus(True)
+        self.le1.selectAll()
         
         self.le2=QLineEdit('0', self)
         self.le2.setAlignment(QtCore.Qt.AlignRight)
@@ -32,9 +36,6 @@ class View(QWidget):
         hbox_formular.addWidget(self.le2)
              
         
-        self.btn1=QPushButton('Message', self)
-        self.btn2=QPushButton('Clear',self)
-        
         hbox=QHBoxLayout()
         hbox.addStretch(1)
         hbox.addWidget(self.btn1)
@@ -46,11 +47,7 @@ class View(QWidget):
         vbox.addLayout(hbox)
         vbox.addStretch(1)
         
-        #vbox=QVBoxLayout()
-        #vbox.addWidget(self.te1)
-        #vbox.addLayout(hbox)
-        #vbox.addStretch(1)
-        
+             
         self.setLayout(vbox)
         
         self.setWindowTitle('Calculator')
@@ -58,7 +55,7 @@ class View(QWidget):
         self.resize(256,256)
         self.show()
         
-    def setDispay(self,text):
+    def setDisplay(self, text):
         self.te1.appendPlainText(text)
         
     def clearMessage(self):
