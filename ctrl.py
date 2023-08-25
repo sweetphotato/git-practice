@@ -22,8 +22,8 @@ class Control:
                 return f'{num1} / {num2} = {self.div(num1,num2)}'
             elif operator == '^':
                 return f'{num1} ^ {num2} = {self.pow(num1,num2)}'
-            #elif operator == '%':
-            #    return f'{num1} % {num2} = {self.mod(num1,num2)}'
+            elif operator == '%':
+                return f'{num1} % {num2} = {self.mod(num1,num2)}'
             else:
                 return "Calculation Error"
         except:
@@ -60,7 +60,7 @@ class Control:
             return e
   
         return pow(a,b)
-    '''
+    
     def mode(self,a,b):
         try:
             if(b==0):
@@ -70,4 +70,4 @@ class Control:
             return e
         
         return a%b
-    '''
+    
